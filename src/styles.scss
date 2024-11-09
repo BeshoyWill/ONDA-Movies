@@ -1,0 +1,196 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Noto+Kufi+Arabic&family=Reem+Kufi+Ink&family=Rubik+Doodle+Shadow&family=Satisfy&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+
+}
+:root{
+  --primary: #ff3700
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-behavior: smooth;
+  background-color: #1f2025;
+  color: white;
+  margin: 0;
+  font-family: 'Montserrat Alternates', sans-serif ;
+}
+
+header#header{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+
+    @media (min-width: 0px) and (max-width: 1100px) {
+      padding: 30px 50px;
+
+    }
+
+    z-index: 10;
+
+    .nav {
+      li {
+        list-style: none;
+        margin: 0 10px;
+
+        &:hover {
+          a {
+            color: var(--primary);
+          }
+        }
+      }
+
+      a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 500;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+    }
+
+    .logo {
+      font-size: 40px;
+      color: #ffffff;
+      letter-spacing: 1px;
+      font-weight: 800;
+    }
+
+    .logoIMG {
+      width: 70px;
+      height: 70px;
+      background-repeat: no-repeat;
+      background-size: contain !important;
+      background-position: center;
+      margin-top: 10px;
+      background-image: url(./assets/logo.png);
+    }
+  }
+
+  .sci {
+    @media (min-width: 0px) and (max-width: 768px) {
+      position: fixed;
+      bottom: 0px;
+    }
+
+    position: fixed;
+    bottom: 0px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: 5px;
+    z-index: 0;
+ul{
+  li{
+    font-size: 16px;
+    padding: 2px 0;
+  }
+}
+p{
+  font-size: 14px;
+  span{
+  font-size: 18px;
+
+    color: skyblue;
+    font-weight: 700;
+  }
+}
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 1px;
+      font-style: 25px;
+      transition: 0.3s;
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+.centerCenter{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.centerBetween{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.text-skyblue{
+  color: skyblue;
+
+}
+.bi-x-lg{
+  cursor: pointer;
+}
+.messageDone{
+  background-color: #6db400;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+  font-weight: 900;
+  transition: 0.5s;
+  p{
+    margin: 0;
+    padding: 0;
+  }
+}
+.bg#bg {
+
+  background-image: url(./assets/client-dark-vip-cinema-studio.jpg);}
+
+  .logo2#logo2{
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+    background-image: url(./assets/logo2.png);
+    background-repeat: no-repeat;
+  }
+.vh-75{
+  height: 60vh;
+}
+.scrollStyle {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.scrollStyle::-webkit-scrollbar {
+  width: 2px;
+  height: 0px;
+}
+
+.scrollStyle::-webkit-scrollbar-track {
+  background-color: #001a31;
+  border-radius: 10px;
+  height: 80% !important;
+  width: 0px;
+}
+
+.scrollStyle::-webkit-scrollbar-thumb {
+  background-color: #bec7d0;
+  border-radius: 20px;
+  transition: 1s !important;
+  margin-right: 20px !important;
+}

@@ -1,0 +1,405 @@
+.banner {
+  background-position: center !important;
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-size: cover !important;
+  overflow: hidden;
+  transition: 0.5s;
+  background-repeat: no-repeat !important;
+
+  @media (min-width: 0px) and (max-width: 768px) {
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    flex-direction: column-reverse !important;
+
+
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+
+
+  .carousel-box {
+    position: relative !important;
+    min-width: 500px !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 20px 20px 20px 50px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(20px) !important;
+    border-radius: 10px !important;
+    z-index: 1;
+    min-height: 70vh;
+
+
+
+
+    @media (min-width: 1000px) and (max-width: 1100px) {
+      min-width: 420px !important;
+
+    }
+
+    @media (min-width: 850px) and (max-width: 1000px) {
+      min-width: 450px !important;
+    }
+
+    @media (min-width: 768px) and (max-width: 850px) {
+      min-width: 400px !important;
+    }
+
+    @media (min-width: 400px) and (max-width: 768px) {
+      min-width: 450px !important;
+    }
+
+    @media (min-width: 320px) and (max-width: 400px) {
+      min-width: 400px !important;
+    }
+
+    @media (min-width: 0px) and (max-width: 320px) {
+      margin-top: 70px;
+      min-width: 350px !important;
+
+    }
+
+    @media (min-width: 0px) and (max-width: 768px) {
+      min-height: 40vh;
+
+    }
+
+    @media (min-width: 0px) and (max-width: 768px) {
+      margin-top: 70px;
+
+    }
+
+    .carousel {
+      width: 100%;
+      height: 300px;
+
+    }
+  }
+
+  .play {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    display: inline-block;
+    justify-content: flex-start;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+    z-index: 3;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      color: var(--primary);
+    }
+
+    i {
+      margin-right: 10px;
+      font-size: 40px;
+      cursor: pointer !important;
+    }
+
+    @media (min-width: 0px) and (max-width: 768px) {
+      bottom: 0px !important;
+    }
+
+    @media (min-width: 700px) and (max-width: 768px) {
+      left: -130px !important;
+    }
+
+    @media (min-width: 630px) and (max-width: 700px) {
+
+      left: -100px !important;
+    }
+
+    @media (min-width: 590px) and (max-width: 630px) {
+
+      left: -60px !important;
+    }
+
+    @media (min-width: 520px) and (max-width: 590px) {
+
+      left: -40px !important;
+    }
+
+    @media (min-width: 470px) and (max-width: 520px) {
+
+      left: -20px !important;
+    }
+
+    @media (min-width: 400px) and (max-width: 470px) {
+      left: 0px !important;
+    }
+  }
+
+  .content {
+    position: relative;
+    height: auto;
+    min-height: 60vh;
+    display: flex !important;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 550px;
+    visibility: hidden;
+    transform: scale(0);
+    transition: 0.5s;
+    z-index: 3;
+
+    @media (min-width: 0px) and (max-width: 768px) {
+      max-width: 100vw;
+      margin-bottom: 40px !important;
+    }
+
+    @media (min-width: 1000px) and (max-width: 1100px) {
+      max-width: 530px;
+    }
+
+    @media (min-width: 850px) and (max-width: 999px) {
+      max-width: 350px;
+    }
+
+    @media (min-width: 768px) and (max-width: 850px) {
+      max-width: 300px;
+    }
+
+    .movie-title {
+      width: 50%;
+      height: 130px;
+      background-position: 0px center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    h4 {
+      color: rgb(255, 255, 255);
+      font-weight: 400;
+      font-size: 29px;
+      width: 100%;
+
+
+      @media (min-width: 900px) and (max-width: 1000px) {
+        font-size: 21px;
+      }
+
+      @media (min-width: 800px) and (max-width: 900px) {
+        font-size: 17px;
+      }
+
+      @media (min-width: 500px) and (max-width: 550px) {
+        font-weight: 500;
+        font-size: 25px;
+      }
+
+      @media (min-width: 450px) and (max-width: 500px) {
+        font-weight: 500;
+        font-size: 21px;
+      }
+
+      @media (min-width: 400px) and (max-width: 450px) {
+        font-weight: 500;
+        font-size: 17px;
+      }
+
+      @media (min-width: 350px) and (max-width: 400px) {
+        font-weight: 500;
+        font-size: 12px;
+      }
+
+      @media (min-width: 0px) and (max-width: 350px) {
+        font-weight: 500;
+        font-size: 10px;
+      }
+
+
+      span {
+        margin-right: 10px !important;
+        padding-right: 10px !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
+        white-space: nowrap;
+        margin-top: 10px;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          border-right: none !important;
+        }
+
+        i {
+          background: var(--primary);
+          color: #ffffff;
+          padding: 0 8px;
+          display: inline-block;
+          border-radius: 2px;
+
+        }
+      }
+    }
+
+    p {
+      font-size: 1em;
+      font-weight: 300;
+      line-height: 1.5em;
+      color: #ffffff;
+      margin: 10px 0 20px;
+    }
+
+    .button {
+      position: relative;
+
+      @media (min-width: 0px) and (max-width: 345px) {
+
+        display: flex;
+        width: 100%;
+
+      }
+
+      a {
+        @media (min-width: 0px) and (max-width: 345px) {
+
+
+          font-size: 14px;
+          white-space: nowrap;
+          padding: 6px 15px;
+
+        }
+
+        position: relative;
+        display: inline-block;
+        margin-right: 10px;
+        background: var(--primary);
+        color: #ffffff;
+        padding: 6px 20px;
+        text-decoration: none;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: 0.5s;
+        cursor: pointer;
+
+        &:nth-child(2) {
+          background-color: rgba(0, 0, 0, 0.5);
+          border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        &:hover {
+          &:nth-child(2) {
+            background: var(--primary);
+          }
+        }
+      }
+    }
+  }
+
+  .content.active {
+    display: block;
+    visibility: visible !important;
+    transform: scale(1);
+    transition: 0.5s;
+  }
+
+  .play {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    display: inline-block;
+    justify-content: flex-start;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+    z-index: 3;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      color: var(--primary);
+    }
+
+    i {
+      margin-right: 10px;
+      font-size: 40px;
+      cursor: pointer !important;
+    }
+  }
+
+
+
+  video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: none;
+  }
+}
+.openCart{
+  height: 400px;
+  padding: 5px;
+
+}
+.closeCart{
+  height: 0px;
+padding: 0;
+margin: 0;
+}
+.cart {
+  width: 300px;
+  background-color: #000d19;
+  position: absolute;
+  top: 60px;
+  right: 30px;
+  z-index: 2;
+  border-radius: 0 0 10px 10px;
+transition: 0.5s;
+  .ticket {
+    p {
+      margin: 0;
+    }
+
+    i {
+      cursor: pointer;
+
+      &:hover {
+        color: red;
+      }
+    }
+
+    .ticketImg {
+      width: 70px;
+      height: 70px;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}

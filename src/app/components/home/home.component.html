@@ -1,0 +1,86 @@
+<header id="header" class="row m-0 p-0 d-flex centerCenter position-static px-md-5"
+  style="background-color: #000d19; height: 60px;">
+  <div class="col-9 h-100 d-flex align-items-center justify-content-start">
+    <a routerLink="home" class="logo">o<span class="text-decoration-line-through text-skyblue">N</span>da</a>
+    <div class="logoIMG"></div>
+  </div>
+  <ul class="nav h-100 col-3 d-flex justify-content-end align-items-center">
+    <!-- <li class="m-0 mx-5" (click)="openCart = !openCart"><a style="white-space: nowrap;"><i class=" bi bi-ticket fs-5"></i></a>
+    </li> -->
+    <li class="m-0"><a style="white-space: nowrap;" routerLink="/AboutUs">About us</a></li>
+  </ul>
+</header>
+<!-- <div class="cart scrollStyle" [ngClass]="openCart?'openCart':'closeCart'">
+  <p class="text-center fs-3 text-skyblue">Tickets</p>
+  <div *ngFor="let item of booked let i = index" class="border-bottom py-1">
+    <div class=" w-100 p-2 ticket d-flex align-items-start position-relative">
+      <div class="ticketImg" style="background-image: url({{item?.film?.poster}});"></div>
+      <div class="h-100">
+        <p class="nameFilm">{{item?.film?.name}}</p>
+        <p> type:{{item?.type?.type}}</p>
+        <p>row:{{item?.chairsBooked?.row}} , seat:{{item?.chairsBooked?.seat}}</p>
+      </div>
+      <i class="bi bi-x position-absolute top-0 end-0 m-2 " (click)="deleteTicket(i)"></i>
+
+    </div>
+    <div class="date">
+      <p class="text-center"> date:{{item?.date?.date}} , day:{{item?.date?.day}} , time:{{item?.type?.time}} , price:250
+      </p>
+    </div>
+  </div>
+</div> -->
+<div class="banner">
+  <video class="" (ended)="ended()" src="{{images[index].triller}}" id="video">
+
+  </video>
+  <div class="content active">
+    <div class="movie-title" style="background-image: url({{images[index].logo}});"></div>
+    <h4>
+      <span>{{images[index].date}}</span><span><i>{{images[index].Classification}}</i></span><span>{{images[index].duration}}</span><span>{{images[index].Genres}}</span>
+    </h4>
+    <p>{{images[index].disc}}</p>
+    <div class="button">
+      <a href="#/Tickets/:{{index}}">Tickets</a>
+      <a href=""><i class="bi bi-plus"></i>My List</a>
+    </div>
+  </div>
+
+  <div class="carousel-box centerCenter">
+    <video class="" (ended)="ended()" src="{{images[index].triller}}" id="video1">
+
+    </video>
+    <div class="carousel">
+
+      <app-slider (closeTriller)="closeTriller()" [images]="images"></app-slider>
+
+    </div>
+    <a class="play d-flex d-md-none align-content-center justify-content-center" (click)="watchTrailer1()">
+      <i class="bi bi-play" id="play1"></i>Watch Trailer</a>
+  </div>
+
+
+
+
+
+
+
+
+  <a class="play d-md-flex d-none align-content-center justify-content-center" (click)="watchTrailer()">
+    <i class="bi bi-play" id="play"></i>Watch Trailer</a>
+
+
+  <div class="sci">
+
+    <ul class="">
+
+      <li><a target="_blank" href="https://ziadal3tar.github.io/ZPORTOFOLIO/#/"><i class="bi bi-browser-chrome"></i></a>
+      </li>
+      <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100009837481669"><i
+            class="bi bi-facebook"></i></a></li>
+      <li><a target="_blank" href="https://wa.me/01270363116"><i class="bi bi-whatsapp"></i></a></li>
+      <li><a target="_blank" href="https://www.linkedin.com/in/ziad-alattar-b6a481224/"><i
+            class="bi bi-linkedin"></i></a></li>
+    </ul>
+    <p>CODED BY <span>ZIAD ALMORSY</span></p>
+  </div>
+</div>

@@ -1,0 +1,323 @@
+<header id="header" class="row m-0 p-0 d-flex centerCenter position-static px-md-5"
+  style="background-color: #000d19; height: 60px;">
+  <div class="col-9 h-100 d-flex align-items-center justify-content-start">
+    <a routerLink="/home" class="logo">o<span class="text-decoration-line-through text-skyblue">N</span>da</a>
+    <div class="logoIMG"></div>
+  </div>
+  <ul class="nav h-100 col-3 d-flex justify-content-end align-items-center">
+    <li class="m-0"><a style="white-space: nowrap;" routerLink="/AboutUs">About us</a></li>
+  </ul>
+</header>
+<div class="body centerCenter w-100 h-auto ">
+  <div id="done" class="done position-absolute w-100 centerCenter">
+    <p>Booked Successful</p>
+  </div>
+  <div class="book">
+    <div class="left position-relative">
+      <img src="{{movieData.poster}}" alt="">
+      <div class="play" (click)="playVid()">
+        <i class="bi bi-play-fill" id="play"></i>
+      </div>
+      <div class="cont">
+        <h6>Directed by</h6>
+        <p>{{movieData.DirectedBy}}</p>
+        <h6>Writers</h6>
+        <p>{{movieData.Writers}}</p>
+        <h6>Stars</h6>
+        <p>{{movieData.Stars}}</p>
+      </div>
+
+    </div>
+    <div class="right">
+
+      <video (ended)="ended()" src="{{movieData.triller}}" id="video">
+
+      </video>
+
+      <div class="head-time">
+        <h1>{{movieData.name}}</h1>
+        <div class="time">
+          <h6 class="centerCenter my-0 py-0">
+            <i class="bi bi-clock"></i>{{movieData.duration}}
+          </h6>
+          <button>{{movieData.Classification}}</button>
+        </div>
+      </div>
+      <div class="date-type">
+        <div class="left-card">
+          <h6 class="title" id="selectedDay">{{selectedDay}}</h6>
+          <div class="card-month crd">
+            <li *ngFor="let item of dateArray let i = index">
+              <h6>{{item.day}}</h6>
+              <h6 class="date-point" [ngClass]="{'h6-active': i == dateActive}" (click)="handelDays(i)">{{item.date}}
+              </h6>
+            </li>
+
+
+
+
+
+          </div>
+        </div>
+        <div class="right-card">
+          <h6 class="title">Show time</h6>
+          <div class="card-month crd">
+            <li *ngFor="let item of times let i = index">
+              <h6>{{item.type}}</h6>
+              <h6 (click)="getTime(item ,i)" [ngClass]="{'h6-active': i == timeActive}">{{item.time}}</h6>
+            </li>
+
+          </div>
+        </div>
+      </div>
+      <div class="screen">
+        Screen
+      </div>
+      <!-- chairs -->
+
+
+      <!-- <div class="chair" id="chair">
+        <div class="rows my-4" *ngFor="let item of chairs let i = index">
+          <p class="m-0">{{item.name}}</p>
+          <li class="seat" *ngFor="let chair of item.chairs let x = index" [ngClass]="{'selected': selectedChairId.includes(item.name + '-' + (x+1))}"
+            [ngClass]="{'booked': item.booked.includes(x)}" (click)="select(i,x,$event)">{{item.name}}{{chair}}</li>
+          <p class="m-0" id="nameRow">{{item.name}}</p>
+        </div>
+      </div> -->
+
+
+      <div class="chair" id="chair">
+        <div class="rows my-4" *ngFor="let item of chairs let i = index">
+          <p class="m-0">{{item.name}}</p>
+
+          <div class="d-flex" [ngClass]="item.name">
+
+            <li *ngFor="let chair of item.chairs let x = index" class="seat "
+              [ngClass]="{'selected': selectedChairId.includes(item.name + '-' + (x+1))}"
+              [ngClass]="{'booked': item.booked.includes(x)}" (click)="select(i,x,$event)">{{item.name}}{{chair}}</li>
+          </div>
+          <p class="m-0" id="nameRow">{{item.name}}</p>
+
+        </div>
+      </div>
+
+
+
+
+      <!-- ticket -->
+      <div class="ticket" id="ticket">
+        <div class="tic" id="tic" *ngFor="let tic of booking.chairsBooked let i = index">
+          <div class="barcode" id="barcode_{{i}}" #barcodeContainer>
+            <div class="cards">
+              <h6>ROW {{tic.row}}</h6>
+              <h6>{{selectedDay}}</h6>
+            </div>
+            <div class="cards">
+              <h6>seat {{tic.seat}}</h6>
+              <h6>{{booking.type.time}}</h6>
+            </div>
+            <h5 class="mt-4">ONDA CINEMA</h5>
+          </div>
+          <div class="tic-details" style="background: url({{movieData.bg}}) no-repeat center 0px /cover;">
+            <div class="type">{{booking.type.type}}</div>
+            <h5 class="pvr"><span>Onda</span> Cinema</h5>
+            <h1>{{movieData.name}}</h1>
+            <div class="seat-det">
+              <div class="seat-cr">
+                <h6>ROW</h6>
+                <h6>{{tic.row}}</h6>
+              </div>
+              <div class="seat-cr">
+                <h6>SEAT</h6>
+                <h6>{{tic.seat}}</h6>
+              </div>
+              <div class="seat-cr">
+                <h6>DATE</h6>
+                <h6>{{booking.date.date}} <sub>{{booking.date.day}}</sub></h6>
+              </div>
+              <div class="seat-cr">
+                <h6>TIME</h6>
+                <h6>{{booking.type.time}} <sub>pm</sub></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- details -->
+      <div class="details" id="set">
+        <div class="details-chair">
+          <li>Available</li>
+          <li>Booked</li>
+          <li>Selected</li>
+        </div>
+      </div>
+      <button class="book-tic" id="book-ticket" (click)="next()">
+        <i class="bi bi-arrow-right-short"></i>
+      </button>
+      <button class="book-tic" id="doneBtn" (click)="done()">
+        DONE
+      </button>
+      <button class="book-tic " id="back-ticket" (click)="back()">
+        <i class="bi bi-arrow-left-short"></i>
+      </button>
+    </div>
+  </div>
+  <div class="sci">
+    <ul class="">
+      <li><a target="_blank" href="https://www.al3tar.me/ZPORTOFOLIO/#/home"><i class="bi bi-browser-chrome"></i></a>
+      </li>
+      <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100009837481669"><i
+            class="bi bi-facebook"></i></a></li>
+      <li><a target="_blank" href="https://wa.me/01270363116"><i class="bi bi-whatsapp"></i></a></li>
+      <li><a target="_blank" href="https://www.linkedin.com/in/ziad-alattar-b6a481224/"><i
+            class="bi bi-linkedin"></i></a></li>
+    </ul>
+    <p>CODED BY <span>ZIAD ALMORSY</span></p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="w-100 vh-100 position-absolute top-0 start-0 z-1 bg-opacity-75 bg-black position-fixed" *ngIf="Payment">
+
+  <div class="wrapper" id="app" (focusout)="blurInput()">
+    <div class="card-form">
+      <div class="card-list">
+        <div class="card-item" [class.-active]="isCardFlipped">
+          <div class="card-item__side -front">
+            <div class="card-item__focus" [class.-active]="focusElementStyle" [style]="focusElementStyle" #focusElement>
+            </div>
+            <div class="card-item__cover">
+              <img
+                [src]="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'"
+                class="card-item__bg">
+            </div>
+
+            <div class="card-item__wrapper">
+              <div class="card-item__top">
+                <img
+                  src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png"
+                  class="card-item__chip">
+                <div class="card-item__type">
+                  <img *ngIf="getCardType"
+                    [src]="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"
+                    alt="" class="card-item__typeImg">
+                </div>
+              </div>
+              <label for="cardNumber" class="card-item__number borderNFocus" id="cardNumber">
+                {{cardNumberTemp}} <p *ngIf="!cardNumberTemp">#### #### #### ####</p>
+              </label>
+              <div class="card-item__content">
+                <label for="cardName" class="card-item__info borderNFocus" id="cardName">
+                  Card Holder <br> {{Name}}<p *ngIf="!Name">Full Name</p>
+                </label>
+                <div class="card-item__date borderNFocus" id="cardDate">
+                  <!-- Add your card expiration date formatting here -->
+                  Expires <br>
+                  <p *ngIf="Year || Month"> {{Year}}/{{Month}}</p>
+                  <p *ngIf="!Year && !Month">MM/YY</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-item__side -back">
+            <div class="card-item__cover">
+              <img
+                [src]="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'"
+                class="card-item__bg">
+            </div>
+            <div class="card-item__band"></div>
+            <div class="card-item__cvv">
+              <div class="card-item__cvvTitle">CVV</div>
+              <div class="card-item__cvvBand">
+                {{Cvv}}
+              </div>
+              <div class="card-item__type">
+                <img *ngIf="getCardType"
+                  [src]="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"
+                  class="card-item__typeImg">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="card-form__inner position-relative">
+        <i class=" bi bi-x-lg position-absolute top-0 start-0 m-2 text-black pointer-event"
+          (click)="Payment = false"></i>
+        <div class="card-input">
+          <label for="cardNumber" class="card-input__label">Card Number</label>
+          <input type="text" (keyup)="handelNumber()" class="card-input__input" (focus)="focus('cardNumber')"
+            maxlength="16" [(ngModel)]="Number" data-ref="cardNumber" autocomplete="off">
+        </div>
+        <div class="card-input">
+          <label for="cardName" class="card-input__label">Card Holder</label>
+          <input type="text" class="card-input__input" (focus)="focus('cardName')" [(ngModel)]="Name"
+            data-ref="cardName" autocomplete="off">
+        </div>
+
+
+
+
+        <div class="card-form__row">
+          <div class="card-form__col d-flex">
+            <div class="w-50">
+              <label for="cardYear" class="card-input__label">Year</label>
+              <input type="number" maxlength="2" class="card-input__input" (focus)="focus('cardDate')" id="cardYear"
+                maxlength="3" [(ngModel)]="Year" (blur)="flipCard(false)" autocomplete="off">
+            </div>
+            <div class="w-50">
+              <label for="cardMonth" class="card-input__label">Month</label>
+              <input type="number" maxlength="2" class="card-input__input" (focus)="focus('cardDate')" id="cardMonth"
+                maxlength="3" [(ngModel)]="Month" (blur)="flipCard(false)" autocomplete="off">
+            </div>
+          </div>
+
+
+
+
+          <div class="card-form__col -cvv">
+            <div class="card-input">
+              <label for="cardCvv" class="card-input__label">CVV</label>
+              <input type="text" class="card-input__input" id="cardCvv" maxlength="3" [(ngModel)]="Cvv"
+                (focus)="flipCard(true)" (blur)="flipCard(false)" autocomplete="off">
+            </div>
+          </div>
+        </div>
+
+        <button class="card-form__button" (click)="submit()">
+          Submit
+        </button>
+      </div>
+
+
+
+
+    </div>
+
+  </div>
+  <div class="messageDone d-flex align-items-center justify-content-center opacity-0" id="messageDone">
+    <p>The booking was successful</p>
+    <i class="bi bi-check2-circle fs-3"></i>
+  </div></div>
